@@ -10,14 +10,12 @@ https://medium.com/google-cloud/getting-started-with-google-app-engine-and-sprin
 1. Download project: https://start.spring.io/ <br>   
 Select: dependences > web, java version > 8.  
 ![start spring](https://antoniodiaz.github.io/images/spring_boot/start_springboot.jpg)
-
-
 2. Run local server: tomcat  
 ```bash
 mvn spring-boot:run
 ```
 
-1. Make app compatible with App Engine. Update **pom.xml**.   
+3. Make app compatible with App Engine. Update **pom.xml**.   
     * Comment tomcat started.
     * Add servlet-api
     * Add appengine plugin
@@ -51,11 +49,11 @@ mvn spring-boot:run
     </plugin>
 </plugins>
 ```
- 
 1. Run local server: jetty
-
-1. Import to Intellij
-
+```
+$ mvn appengine:run
+```
+1. Import to Intellij. Google Cloud plugin needed.
 
 ## Persistence: Objectify
 
