@@ -191,6 +191,92 @@ Steps:
    ```
 
 ## Thymeleaf
+thanks to: https://www.mkyong.com/spring-boot/spring-boot-hello-world-example-thymeleaf/
+1. pom.xml: add dependence.  
+    ```xml
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    ```
+1. Add template to /src/main/resources/templates/templates.html
+    ```html
+    <!DOCTYPE HTML>
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Spring Boot Thymeleaf Hello World Example</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/home">Home</a><br>
+                    <a class="navbar-brand" href="/home/put">Put datastore</a><br>
+                    <a class="navbar-brand" href="/home/get">Get datastore</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="starter-template">
+                <h1>Spring Boot Web Thymeleaf Example</h1>
+                <h2>
+                    <span th:text="'Message: ' + ${message}"></span>
+                </h2>
+            </div>
+        </div>
+    </body>
+    </html>
+    ```
+1. Create css in /src/main/resources/static/main.css
+    ```css
+    h1{ color:#0000FF; }
+    h2 { color:#FF0000; }
+    ```
+1. Create controller
+    ```java
+    package com.adiaz.springboot.controllers;
+    
+    import org.springframework.beans.factory.annotation.Value;
+    import org.springframework.stereotype.Controller;
+    import org.springframework.web.bind.annotation.RequestMapping;
+    
+    import java.util.Map;
+    
+    @Controller
+    public class ThymeleafController {
+    
+        // inject via application.properties
+        @Value("${welcome.message:test}")
+        private String message = "Hello World";
+    
+        @RequestMapping("/")
+        public String welcome(Map<String, Object> model) {
+            model.put("message", this.message);
+            return "welcome";
+        }
+    
+    }
+    ```
+1.Create src/main/resources/application.properties
+    ```
+    welcome.message: Hello my friend!!!
+    ``` 
 
 ## Security
 
