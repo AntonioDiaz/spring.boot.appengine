@@ -273,7 +273,7 @@ thanks to: https://www.mkyong.com/spring-boot/spring-boot-hello-world-example-th
     
     }
     ```
-1.Create src/main/resources/application.properties
+1. Create src/main/resources/application.properties
     ```
     welcome.message: Hello my friend!!!
     ``` 
