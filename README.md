@@ -47,7 +47,7 @@ Select: dependences > web, java version > 8.
    ```bash
    $ mvn appengine:run
    ```
-1. Import to Intellij. Google Cloud plugin needed.
+1. Import to Intellij. [Google Cloud](https://cloud.google.com/tools/intellij/docs/how-to) plugin needed.
 
 ## Persistence: Objectify
 Thanks to: https://github.com/takemikami/spring-boot-objectify-sample  
